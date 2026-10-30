@@ -1,46 +1,73 @@
 <!doctype html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Painel de resultados</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resultados</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <main class="container wide">
-    <header>
-      <p class="eyebrow">PAINEL DO APRESENTADOR</p>
-      <h1>Resultados da dinâmica</h1>
-      <p>Visão geral das respostas recebidas.</p>
-    </header>
-    <section id="login" class="panel">
-      <form id="login-form"><label for="email">E-mail administrativo</label><input id="email" type="email"
-          autocomplete="username" required><label for="password">Senha</label><input id="password" type="password"
-          autocomplete="current-password" required><button id="login-btn" class="button" type="submit">Entrar</button>
+  <main class="container wide presentation-container">
+    <section id="login" class="panel login-panel">
+      <form id="login-form">
+        <label for="email">E-mail</label>
+        <input id="email" type="email" autocomplete="username" required>
+        <label for="password">Senha</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+        <button id="login-btn" class="button" type="submit">Entrar</button>
         <p id="login-status" class="muted" role="status"></p>
       </form>
     </section>
+
     <section id="dashboard" hidden>
-      <div class="dashboard-actions"><button id="logout-btn" class="button" type="button">Sair</button></div>
-      <div class="stats" id="stats"></div>
-      <div class="panel">
-        <h2>Distribuição das respostas</h2>
-        <div id="aggregate-charts"></div>
+      <div class="dashboard-topline">
+        <p id="response-count" class="response-count">0 respostas</p>
+        <button id="logout-btn" class="button button-secondary" type="button">Sair</button>
       </div>
-      <div class="panel reveal">
-        <h2>Comparação detalhada</h2>
-        <p>Esta seção deve ser aberta somente depois da discussão dos resultados agregados.</p><button id="reveal"
-          class="button">Revelar comparação entre condições</button>
-        <div id="split-results" hidden></div>
-      </div>
+
+      <section id="overview-stage">
+        <div id="aggregate-grid" class="aggregate-grid"></div>
+        <div class="stage-controls overview-controls">
+          <button id="stage-next" class="button" type="button">Continuar</button>
+        </div>
+      </section>
+
+      <section id="detail-stage" hidden>
+        <div class="detail-navigation">
+          <button id="stage-prev" class="button button-secondary" type="button">Voltar</button>
+          <span id="question-page" aria-live="polite">1 / 12</span>
+          <div class="detail-next-group">
+            <button id="question-prev" class="button button-secondary" type="button">Anterior</button>
+            <button id="question-next" class="button" type="button">Próxima</button>
+          </div>
+        </div>
+
+        <h2 id="detail-question-title" class="detail-question-title"></h2>
+
+        <div class="detail-layout">
+          <section class="total-panel">
+            <h3 class="total-panel-title">Total</h3>
+            <div id="total-chart"></div>
+          </section>
+
+          <div class="two-panel-stack">
+            <section class="split-panel">
+              <h2>Versão A - Falaciosa, mas assertiva</h2>
+              <div id="first-split-chart"></div>
+            </section>
+            <section class="split-panel">
+              <h2>Versão B - Embasada, mas inconclusiva</h2>
+              <div id="second-split-chart"></div>
+            </section>
+          </div>
+        </div>
+      </section>
     </section>
-    <footer>Atualização automática quando o Realtime estiver habilitado no Supabase.</footer>
   </main>
+
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="config.js"></script>
+  <script src="content.js"></script>
   <script src="admin.js"></script>
 </body>
-
 </html>
