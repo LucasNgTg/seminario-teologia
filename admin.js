@@ -3,6 +3,7 @@
   const db = supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
   const $ = id => document.getElementById(id);
   const questions = window.EXPERIMENT_QUESTIONS;
+  const experimentTexts = window.EXPERIMENT_TEXTS;
 
   let rows = [];
   let stage = 1;
@@ -101,6 +102,30 @@
       .join('');
   }
 
+  function appendTextVersion(titleId, contentId, version) {
+    $(titleId).textContent = version.title;
+
+    const container = $(contentId);
+    container.replaceChildren();
+
+    version.paragraphs.forEach(paragraph => {
+      const element = document.createElement('p');
+      element.textContent = paragraph;
+      container.appendChild(element);
+    });
+  }
+
+  function renderTexts() {
+    appendTextVersion('text-a-title', 'text-a-content', {
+      ...experimentTexts.versionA,
+      title: `Versão A — ${experimentTexts.versionA.title}`
+    });
+    appendTextVersion('text-b-title', 'text-b-content', {
+      ...experimentTexts.versionB,
+      title: `Versão B — ${experimentTexts.versionB.title}`
+    });
+  }
+
   function renderDetail() {
     const question = questions[questionIndex];
     const firstGroup = rows.filter(row => row.condition_code === 'A');
@@ -118,11 +143,14 @@
 
   function render() {
     $('overview-stage').hidden = stage !== 1;
-    $('detail-stage').hidden = stage !== 2;
+    $('texts-stage').hidden = stage !== 2;
+    $('detail-stage').hidden = stage !== 3;
     $('response-count').textContent = `${rows.length} respostas`;
 
     if (stage === 1) {
       renderOverview();
+    } else if (stage === 2) {
+      renderTexts();
     } else {
       renderDetail();
     }
@@ -167,12 +195,22 @@
 
   $('stage-next').addEventListener('click', () => {
     stage = 2;
+    render();
+  });
+
+  $('texts-prev').addEventListener('click', () => {
+    stage = 1;
+    render();
+  });
+
+  $('texts-next').addEventListener('click', () => {
+    stage = 3;
     questionIndex = 0;
     render();
   });
 
   $('stage-prev').addEventListener('click', () => {
-    stage = 1;
+    stage = 2;
     render();
   });
 

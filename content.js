@@ -16,11 +16,11 @@ window.EXPERIMENT_TEXTS = {
   versionB: {
     title: "A Anonimidade nas Redes",
     paragraphs: [
-      "Exigir identidade verificada para usar redes sociais é uma ideia defendida como remédio contra a desinformação e o assédio.Os dados disponíveis apontam em mais de uma direção.",
-      "De um lado, há indícios de que o problema é real e de que o anonimato tem papel nele.Em 2018, o Facebook declarou que entre 3 % e 4 % de suas contas, cerca de 50 milhões, eram falsas, e os bots políticos costumam ser descritos por três traços: atividade, amplificação e anonimato.",
-      "Do outro, há o caso da Coreia do Sul, que passou a exigir nome real nos maiores sites do país em 2007. Segundo o órgão regulador coreano, os comentários maliciosos eram 13, 9% do total naquele ano e caíram só 0, 9 ponto percentual no seguinte.Um estudo acadêmico estimou uma queda de até 30% nos xingamentos, concentrada em quem comentava pouco.Em 2012, a Corte Constitucional anulou a lei, afirmando que não havia evidência de redução dos comentários negativos e que o anonimato tem valor constitucional.Muitos usuários migraram para sites estrangeiros.",
-      "Há ainda um dado que complica os dois lados: em uma amostra do Twitter durante a eleição americana de 2016, 0, 1% dos usuários compartilharam 80% das notícias falsas.Isso pode indicar que poucos perfis concentram o problema, mas não diz se identificá- los resolveria.",
-      "Os estudos medem coisas diferentes, em países e épocas diferentes, e nenhum testou a exigência de identidade nas redes atuais.Por ora, os dados não permitem concluir se a verificação reduziria o problema ou criaria outros.",
+      "Exigir identidade verificada para usar redes sociais é uma ideia defendida como remédio contra a desinformação e o assédio. Os dados disponíveis apontam em mais de uma direção.",
+      "De um lado, há indícios de que o problema é real e de que o anonimato tem papel nele. Em 2018, o Facebook declarou que entre 3 % e 4 % de suas contas, cerca de 50 milhões, eram falsas, e os bots políticos costumam ser descritos por três traços: atividade, amplificação e anonimato.",
+      "Do outro, há o caso da Coreia do Sul, que passou a exigir nome real nos maiores sites do país em 2007. Segundo o órgão regulador coreano, os comentários maliciosos eram 13, 9% do total naquele ano e caíram só 0, 9 ponto percentual no seguinte. Um estudo acadêmico estimou uma queda de até 30% nos xingamentos, concentrada em quem comentava pouco. Em 2012, a Corte Constitucional anulou a lei, afirmando que não havia evidência de redução dos comentários negativos e que o anonimato tem valor constitucional. Muitos usuários migraram para sites estrangeiros.",
+      "Há ainda um dado que complica os dois lados: em uma amostra do Twitter durante a eleição americana de 2016, 0, 1% dos usuários compartilharam 80% das notícias falsas. Isso pode indicar que poucos perfis concentram o problema, mas não diz se identificá- los resolveria.",
+      "Os estudos medem coisas diferentes, em países e épocas diferentes, e nenhum testou a exigência de identidade nas redes atuais. Por ora, os dados não permitem concluir se a verificação reduziria o problema ou criaria outros.",
     ],
   },
 };
